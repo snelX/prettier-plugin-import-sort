@@ -1,0 +1,80 @@
+{
+  "name": "@snelx/prettier-plugin-import-sort",
+  "version": "1.0.0",
+  "description": "Prettier plugin to pass javascript and typescript through import-sort for Commonjs and ESM",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "tsup src/index.ts",
+    "dev": "tsup src/index.ts --watch"
+  },
+  "keywords": [
+    "prettier",
+    "import-sort",
+    "plugin"
+  ],
+  "homepage": "https://github.com/snelx/prettier-plugin-import-sort#readme",
+  "bugs": {
+    "url": "https://github.com/snelx/prettier-plugin-import-sort/issues"
+  },
+  "author": {
+    "name": "Herberth Obregón",
+    "email": "opensource@snelx.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "import-sort": "^6.0.0",
+    "import-sort-config": "^6.0.0",
+    "import-sort-parser-babylon": "^6.0.0",
+    "import-sort-parser-typescript": "^6.0.0",
+    "import-sort-style-module": "^6.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.2.2",
+    "@snelx/prettier-plugin-import-sort": "link:",
+    "@types/node": "^22.5.0",
+    "prettier": "^3.3.3",
+    "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "prettier": {
+    "printWidth": 190,
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxBracketSameLine": true,
+    "jsxSingleQuote": false,
+    "proseWrap": "preserve",
+    "arrowParens": "avoid",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "useTabs": true,
+    "plugins": [
+      "@snelx/prettier-plugin-import-sort"
+    ]
+  },
+  "tsup": {
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "target": [
+      "es2022",
+      "node18"
+    ],
+    "sourcemap": true,
+    "splitting": true
+  },
+  "importSort": {
+    ".js, .mjs, .jsx, .ts, .tsx, .mts": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  }
+}

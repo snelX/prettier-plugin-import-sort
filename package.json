@@ -15,6 +15,10 @@
     "plugin"
   ],
   "homepage": "https://github.com/snelx/prettier-plugin-import-sort#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snelX/prettier-plugin-import-sort"
+  },
   "bugs": {
     "url": "https://github.com/snelx/prettier-plugin-import-sort/issues"
   },

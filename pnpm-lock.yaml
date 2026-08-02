@@ -23,6 +23,9 @@ importers:
       import-sort-style-module:
         specifier: ^6.0.0
         version: 6.0.0
+      typescript:
+        specifier: ^5.5.4
+        version: 5.9.3
     devDependencies:
       '@commitlint/config-conventional':
         specifier: ^19.2.2
@@ -31,8 +34,8 @@ importers:
         specifier: 'link:'
         version: 'link:'
       '@types/node':
-        specifier: ^22.5.0
-        version: 22.5.0
+        specifier: ^26.1.2
+        version: 26.1.2
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -41,10 +44,7 @@ importers:
         version: 2.6.3
       tsup:
         specifier: ^8.2.4
-        version: 8.2.4(typescript@5.5.4)
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
+        version: 8.2.4(typescript@5.9.3)
 
 packages:
 
@@ -401,6 +401,9 @@ packages:
 
   '@types/node@22.5.0':
     resolution: {integrity: sha512-DkFrJOe+rfdHTqqMg0bSNlGlQ85hSoh2TPzZyhHsXnMtligRWpxUySiyw8FY14ITt24HVCiQPWxS3KO/QlGmWg==}
+
+  '@types/node@26.1.2':
+    resolution: {integrity: sha512-Vu4a5UFA9rIIFJ7rB/Vaafh9lrCQszopTCx6KjFboXTGQbPNasehVR5TEiithSDGyd1DEiUByggTZsg8jukeIg==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -1050,13 +1053,16 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+  undici-types@8.3.0:
+    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
   update-browserslist-db@1.1.0:
     resolution: {integrity: sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==}
@@ -1385,6 +1391,10 @@ snapshots:
   '@types/node@22.5.0':
     dependencies:
       undici-types: 6.19.8
+
+  '@types/node@26.1.2':
+    dependencies:
+      undici-types: 8.3.0
 
   ansi-regex@5.0.1: {}
 
@@ -1971,7 +1981,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.2.4(typescript@5.5.4):
+  tsup@8.2.4(typescript@5.9.3):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.1)
       cac: 6.7.14
@@ -1990,7 +2000,7 @@ snapshots:
       sucrase: 3.35.0
       tree-kill: 1.2.2
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.9.3
     transitivePeerDependencies:
       - jiti
       - supports-color
@@ -1999,9 +2009,11 @@ snapshots:
 
   typescript@3.9.10: {}
 
-  typescript@5.5.4: {}
+  typescript@5.9.3: {}
 
   undici-types@6.19.8: {}
+
+  undici-types@8.3.0: {}
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:

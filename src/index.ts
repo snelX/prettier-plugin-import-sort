@@ -1,9 +1,14 @@
 import path from "path";
+import { fileURLToPath } from "url";
 
 import sortImports from "import-sort";
 import { getConfig } from "import-sort-config";
 import { parsers as javascriptParsers } from "prettier/parser-babel";
 import { parsers as typescriptParsers } from "prettier/parser-typescript";
+
+import * as typescriptParser from "./parsers/typescript.js";
+
+const moduleDirname = path.dirname(fileURLToPath(import.meta.url));
 
 function getAndCheckConfig(extension: string, fileDirectory?: string) {
 	const resolvedConfig = getConfig(extension, fileDirectory);
@@ -22,11 +27,21 @@ function getAndCheckConfig(extension: string, fileDirectory?: string) {
 }
 
 function organizeImports(unsortedCode: string, extension: string, dirname: string | null, filepath: string | undefined): string {
-	const config = getAndCheckConfig(extension, dirname || path.resolve(__dirname, "..", ".."));
+	const config = getAndCheckConfig(extension, dirname || path.resolve(moduleDirname, "..", ".."));
 	const { parser, style, config: rawConfig } = config;
 
-	const sortResult = sortImports(unsortedCode, parser!, style!, typeof filepath === "string" ? filepath : `dummy${extension}`, rawConfig.options);
-	return sortResult.code;
+	const usesTypescriptParser = rawConfig.parser === "typescript" || /import-sort-parser-typescript/.test(String(parser));
+	const effectiveParser = usesTypescriptParser ? typescriptParser : parser!;
+
+	const originalConsoleLog = console.log;
+	console.log = () => {};
+
+	try {
+		const sortResult = sortImports(unsortedCode, effectiveParser, style!, typeof filepath === "string" ? filepath : `dummy${extension}`, rawConfig.options);
+		return sortResult.code;
+	} finally {
+		console.log = originalConsoleLog;
+	}
 }
 
 const parsers = {

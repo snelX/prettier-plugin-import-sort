@@ -1,6 +1,6 @@
 {
   "name": "@snelx/prettier-plugin-import-sort",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Prettier plugin to pass javascript and typescript through import-sort for Commonjs and ESM",
   "type": "module",
   "main": "dist/index.cjs",
@@ -28,16 +28,16 @@
     "import-sort-config": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
-    "import-sort-style-module": "^6.0.0"
+    "import-sort-style-module": "^6.0.0",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.2.2",
     "@snelx/prettier-plugin-import-sort": "link:",
-    "@types/node": "^22.5.0",
+    "@types/node": "^26.1.2",
     "prettier": "^3.3.3",
     "tslib": "^2.6.3",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "tsup": "^8.2.4"
   },
   "prettier": {
     "printWidth": 190,
